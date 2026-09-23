@@ -18,7 +18,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-FILE = "hko-daily-mean-temperature-2026.csv"   # CHANGE ME: the same name as in fetch.py
+FILE = "daily_KP_MAXUV_ALL.csv" # CHANGE ME: the same name as in fetch.py
 PICTURE = "plot.png"                           # what goes into out/, and into the README
 
 HERE = Path(__file__).parent
@@ -43,18 +43,23 @@ def main():
     print(f"{DATA.name}: {len(table)} rows. The first one: {table[0]}")
 
     days, values = [], []
-    for i, (year, month, day, value, quality) in enumerate(table):   # the loop over the numbers
-        if value == "***":                   # the Observatory's word for "missing"
+    for i, (year, month, day, value, time_recorded, quality) in enumerate(table):
+        if year != "2025":
             continue
-        days.append(i + 1)
-        values.append(float(value))          # it arrived as text; make it a number
+
+        if value == "***":
+            continue
+
+        days.append(len(days) + 1)
+        values.append(float(value))
+
     print(f"{len(values)} values, from {min(values)} to {max(values)}")
 
     fig, ax = plt.subplots(figsize=(10, 4))
     ax.plot(days, values, color="#d6591d", linewidth=1.5)
-    ax.set_xlabel("day of 2026")
-    ax.set_ylabel("daily mean temperature, °C")
-    ax.set_title("Hong Kong Observatory, 2026 so far")
+    ax.set_xlabel("day of 2025")
+    ax.set_ylabel("daily maximum UV index")
+    ax.set_title("King's Park daily maximum UV index, 2025")
     fig.tight_layout()
 
     OUT.mkdir(exist_ok=True)
