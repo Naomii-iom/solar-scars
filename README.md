@@ -1,30 +1,37 @@
-# The phenomenon
+# Solar Scars
 
-<!-- This is the SD5913 assignment 2 template. Everything in this file is yours to
-replace, and the check counts words: comments like this one are not words, so
-delete each one as you write. Start with the heading: name the phenomenon.
-
-Then, in this order, at least 150 words in total.
-
-New to folders, paths, or the files here whose names start with a dot? Read
-https://github.com/sd5913/pfad/blob/2026/reference/files.md first. Ten minutes. -->
-
-![what the picture is](out/plot.png)
+![Solar Scars: 365 daily UV marks for 2025](out/plot.png)
 
 ## The phenomenon
 
-<!-- What goes up and down, and why you looked at it. -->
+Solar Scars explores how ultraviolet exposure changes through a year in Hong
+Kong. I chose the daily maximum UV Index because it describes an invisible
+environmental force that can still damage skin and eyes. The values rise and
+fall with the seasons, weather, cloud cover, and atmospheric conditions. I was
+interested in turning those measurements into something that looks physical:
+each day leaves a small burn-like trace on the page. Looking across the rows
+makes the stronger summer period visible, while the irregular pale marks show
+that UV exposure does not follow a perfectly smooth seasonal curve.
 
 ## The source
 
-<!-- A link to the page or endpoint the file came from, and one line on what is in
-the file: how many rows, what a row means, what the units are. -->
+The data comes from the [Hong Kong Observatory daily maximum and mean UV Index
+dataset](https://data.gov.hk/en-data/dataset/hk-hko-rss-daily-maximum-mean-uv-index).
+The committed CSV is the all-year daily maximum UV file for King's Park. It
+contains 9,891 observation rows. Each row records a year, month, day, maximum UV
+Index value, the 15-minute period when that maximum was recorded, and a data
+completeness flag. This project selects the 365 observations from 2025. UV Index
+is a dimensionless measure of the potential for ultraviolet radiation to harm
+human skin and eyes.
 
 ## What the picture shows
 
-<!-- Two or three sentences. Including what it hides: every transformation throws
-something away, and naming what yours threw away is the easiest way to sound like
-you know what you did. -->
+The picture arranges 2025 as twelve horizontal month rows. One radial scar
+represents one day. Higher UV values produce larger, darker marks with more
+rays, so periods of intense exposure appear more heavily burned. The image
+keeps the annual pattern and daily variation, but it hides exact numeric values,
+the recorded time of each maximum, and the completeness flag. It is designed as
+an atmospheric overview rather than a chart for reading precise measurements.
 
 ## Run it
 
