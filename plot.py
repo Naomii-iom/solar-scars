@@ -17,6 +17,10 @@ import csv
 import math
 from pathlib import Path
 
+import matplotlib
+
+matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import Ellipse
@@ -466,7 +470,6 @@ def main():
     OUT.mkdir(exist_ok=True)
     fig.savefig(OUT / PICTURE, dpi=114)
     print(f"saved out/{PICTURE}")
-    plt.show()
 
 
 if __name__ == "__main__":
