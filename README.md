@@ -1,41 +1,43 @@
-# Solar Scars
+# Solar Scar
 
-![Solar Scars: 365 daily UV marks for 2025](out/plot.png)
+## Phenomenon
 
-## The phenomenon
+Solar Scar visualizes how Hong Kong’s daily maximum UV Index changed across
+2025 using observations from King’s Park. I chose UV exposure because it is
+invisible but changes strongly through the year. The project
+turns this invisible solar exposure into a visible, accumulated “scar.”
 
-Solar Scars explores how ultraviolet exposure changes through a year in Hong
-Kong. I chose the daily maximum UV Index because it describes an invisible
-environmental force that can still damage skin and eyes. The values rise and
-fall with the seasons, weather, cloud cover, and atmospheric conditions. I was
-interested in turning those measurements into something that looks physical:
-each day leaves a small burn-like trace on the page. Looking across the rows
-makes the stronger summer period visible, while the irregular pale marks show
-that UV exposure does not follow a perfectly smooth seasonal curve.
+## Data source
 
-## The source
+The data comes from the [Hong Kong Observatory King’s Park daily maximum UV
+CSV](https://data.weather.gov.hk/weatherAPI/cis/csvfile/KP/ALL/daily_KP_MAXUV_ALL.csv).
+The raw file is stored unchanged at `data/daily_KP_MAXUV_ALL.csv` and contains
+approximately 9,891 observation rows. One row represents one day, with fields
+for year, month, day, maximum UV value, recorded time, and data completeness.
+The UV Index is dimensionless. The artwork uses all 365 valid observations from
+2025.
 
-The data comes from the [Hong Kong Observatory daily maximum and mean UV Index
-dataset](https://data.gov.hk/en-data/dataset/hk-hko-rss-daily-maximum-mean-uv-index).
-The committed CSV is the all-year daily maximum UV file for King's Park. It
-contains 9,891 observation rows. Each row records a year, month, day, maximum UV
-Index value, the 15-minute period when that maximum was recorded, and a data
-completeness flag. This project selects the 365 observations from 2025. UV Index
-is a dimensionless measure of the potential for ultraviolet radiation to harm
-human skin and eyes.
+## Final picture
+
+![Solar Scar — 365 days of maximum UV exposure in Hong Kong](out/plot.png)
 
 ## What the picture shows
 
-The picture arranges 2025 as twelve horizontal month rows. One radial scar
-represents one day. Higher UV values produce larger, darker marks with more
-rays, so periods of intense exposure appear more heavily burned. The image
-keeps the annual pattern and daily variation, but it hides exact numeric values,
-the recorded time of each maximum, and the completeness flag. It is designed as
-an atmospheric overview rather than a chart for reading precise measurements.
+Angle represents the day of the year, while radial distance represents the
+daily maximum UV Index. Each day creates overlapping translucent stains whose
+colour, size, depth, and position respond to UV intensity. A thin scar line
+retains the raw daily variation. A seasonal background uses a moving average
+to reveal the broad annual rhythm. Spring and summer become denser and
+darker, while lower-UV periods fade into the background.
 
-## Run it
+## What the picture hides
 
-```
-uv run fetch.py
+The exact recorded time and data completeness flags are not visually encoded.
+Layering and transparency emphasize seasonal accumulation, so individual
+numbers are not equally easy to read precisely.
+
+## Run
+
+```bash
 uv run plot.py
 ```
